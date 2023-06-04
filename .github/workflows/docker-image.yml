@@ -36,8 +36,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          platforms: linux/amd64,linux/arm64/v8,linux/arm/v6,linux/arm/v7,linux/386
+          platforms: linux/amd64
           push: true
-          tags: |
-            w3security/bruttrack:latest
-            w3security/bruttrack:${{ steps.latest-tag.outputs.release }}
+          tags: w3security/bruttrack:latest,w3security/bruttrack:${{ steps.meta.outputs.tag }}
