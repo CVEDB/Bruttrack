@@ -29,7 +29,7 @@ LOOT_DIR=/usr/share/bruttrack/loot
 PLUGINS_DIR=/usr/share/bruttrack/plugins
 GO_DIR=~/go/bin
 
-echo -e "$OKRED[>]$RESET This script will install Bruttrack under $INSTALL_DIR. Are you sure you want to continue? (Hit Ctrl+C to exit)$RESET"
+echo -e "$OKRED[>]$RESET This script will install Sn1per under $INSTALL_DIR. Are you sure you want to continue? (Hit Ctrl+C to exit)$RESET"
 if [[ "$1" != "force" ]]; then
 	read answer
 fi
@@ -157,7 +157,7 @@ echo -e "$OKBLUE[*]$RESET Downloading extensions...$RESET"
 
 # SUBLIST3R INSTALLER
 echo -e "$OKBLUE[*]$RESET Installing Sublist3r...$RESET"
-git clone https://github.com/w3security/Sublist3r.git
+git clone https://github.com/1N3/Sublist3r.git
 
 # SHOCKER INSTALLER
 echo -e "$OKBLUE[*]$RESET Installing Shocker...$RESET"
@@ -169,7 +169,7 @@ git clone https://github.com/arthepsy/ssh-audit
 
 # JEXBOSS INSTALLER
 echo -e "$OKBLUE[*]$RESET Installing Jexboss...$RESET"
-git clone https://github.com/w3security/jexboss.git
+git clone https://github.com/1N3/jexboss.git
 
 # WIG INSTALLER
 echo -e "$OKBLUE[*]$RESET Installing Wig...$RESET"
@@ -217,9 +217,17 @@ pip install -r $PLUGINS_DIR/secretfinder/requirements.txt
 
 # LINKFINDER INSTALLER
 echo -e "$OKBLUE[*]$RESET Installing LinkFinder...$RESET"
-git clone https://github.com/w3security/LinkFinder
+git clone https://github.com/1N3/LinkFinder
 cd LinkFinder
 python3 setup.py install
+cd ..
+
+# PAGODO INSTALLER
+echo -e "$OKBLUE[*]$RESET Installing pagodo...$RESET"
+git clone https://github.com/opsdisk/pagodo.git
+cd pagodo
+pip3 install -r requirements.txt
+python ghdb_scraper.py -s -j -i
 cd ..
 
 # GITGRABER INSTALLER
@@ -321,7 +329,7 @@ go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest; ln 
 
 # DIRDAR INSTALLER
 echo -e "$OKBLUE[*]$RESET Installing DirDar...$RESET"
-go install github.com/w3security/dirdar@latest; ln -fs /root/go/bin/dirdar /usr/local/bin/dirdar
+go install github.com/1N3/dirdar@latest; ln -fs /root/go/bin/dirdar /usr/local/bin/dirdar
 
 # VULNERS NMAP INSTALLER
 echo -e "$OKBLUE[*]$RESET Installing Vulners...$RESET"
@@ -389,25 +397,25 @@ cp -f /usr/bin/theHarvester /usr/bin/theharvester 2> /dev/null
 # BLACKWIDOW INSTALLER
 echo -e "$OKBLUE[*]$RESET Installing BlackWidow...$RESET"
 cd $PLUGINS_DIR
-git clone https://github.com/w3security/BlackWidow
+git clone https://github.com/1N3/BlackWidow
 cd $PLUGINS_DIR/BlackWidow/ && bash install.sh force 2> /dev/null
 
 # BRUTEX INSTALLER
 echo -e "$OKBLUE[*]$RESET Installing BruteX...$RESET"
 cd $PLUGINS_DIR
-git clone https://github.com/w3security/BruteX.git
+git clone https://github.com/1N3/BruteX.git
 cd $PLUGINS_DIR/BruteX/ && bash install.sh 2> /dev/null
 
 # FINDSPLOIT INSTALLER
 echo -e "$OKBLUE[*]$RESET Installing FindSploit...$RESET"
 cd $PLUGINS_DIR
-git clone https://github.com/w3security/Findsploit.git
+git clone https://github.com/1N3/Findsploit.git
 cd $PLUGINS_DIR/Findsploit/ && bash install.sh 2> /dev/null
 
 # GOOHAK INSTALLER
 echo -e "$OKBLUE[*]$RESET Installing GooHak...$RESET"
 cd $PLUGINS_DIR
-git clone https://github.com/w3security/Goohak.git
+git clone https://github.com/1N3/Goohak.git
 
 echo -e "$OKBLUE[*]$RESET Setting up environment...$RESET"
 cd $INSTALL_DIR
@@ -424,7 +432,7 @@ ln -s $INSTALL_DIR/bruttrack /usr/bin/bruttrack 2> /dev/null
 ln -s $PLUGINS_DIR/Goohak/goohak /usr/bin/goohak 2> /dev/null
 ln -s $PLUGINS_DIR/dirsearch/dirsearch.py /usr/bin/dirsearch 2> /dev/null
 ln -s /usr/share/bruttrack /bruttrack 2> /dev/null
-ln -s /usr/share/bruttrack /usr/share/bruttrack 2> /dev/null
+ln -s /usr/share/Bruttrack /usr/share/Bruttrack 2> /dev/null
 ln -s /usr/share/bruttrack/loot/workspace /workspace 2> /dev/null
 ln -s /usr/share/bruttrack/loot/workspace /root/workspace 2> /dev/null
 ln -s /usr/share/bruttrack /root/bruttrack 2> /dev/null
