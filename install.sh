@@ -222,6 +222,14 @@ cd LinkFinder
 python3 setup.py install
 cd ..
 
+# PAGODO INSTALLER
+echo -e "$OKBLUE[*]$RESET Installing pagodo...$RESET"
+git clone https://github.com/opsdisk/pagodo.git
+cd pagodo
+pip3 install -r requirements.txt
+python ghdb_scraper.py -s -j -i
+cd ..
+
 # GITGRABER INSTALLER
 echo -e "$OKBLUE[*]$RESET Installing GitGrabber...$RESET"
 git clone https://github.com/hisxo/gitGraber.git
